@@ -1,0 +1,12 @@
+torch
+torchvision
+torchaudio
+transformers
+datasets
+peft
+bitsandbytes
+trl
+fastapi
+uvicorn
+pydantic
+pytest
