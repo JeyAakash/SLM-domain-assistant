@@ -157,6 +157,3 @@ The server will launch at `http://127.0.0.1:8000`.
 
 ---
 
-## 📝 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
