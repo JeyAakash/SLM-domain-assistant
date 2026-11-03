@@ -146,7 +146,7 @@ The server will launch at `http://127.0.0.1:8000`.
      "max_tokens": 80,
      "temperature": 0.3
    }
-   抓```
+   ```
 5. **Summarization**: Call `POST /summarize-prompt` to compress long input text.
 6. **Statistics**: Call `GET /model-stats` to view total inference counts and device status.
 
