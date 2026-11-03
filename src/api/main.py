@@ -11,7 +11,6 @@ app = FastAPI(
     version="1.0"
 )
 
-# 1. Model configuration
 model_id = "unsloth/Llama-3.2-1B-Instruct"
 
 print("Loading tokenizer and base model in 4-bit...")
@@ -30,7 +29,6 @@ base_model = AutoModelForCausalLM.from_pretrained(
     device_map="auto"
 )
 
-# 2. Safely resolve and normalize absolute path for local adapter loading
 raw_adapter_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../experiments/final_adapter"))
 normalized_adapter_path = raw_adapter_path.replace("\\", "/")
 
@@ -42,7 +40,6 @@ model = PeftModel.from_pretrained(
 )
 model.eval()
 
-# 3. Pydantic Schemas for API Validation
 class QueryRequest(BaseModel):
     prompt: str
     max_tokens: int = 60
@@ -53,14 +50,12 @@ class QueryResponse(BaseModel):
 class AdvancedQueryRequest(BaseModel):
     prompt: str
     max_tokens: int = 60
-    temperature: float = 0.7  # Customize creativity dynamically
-
+    temperature: float = 0.7  
 class AdvancedQueryResponse(BaseModel):
     prompt: str
     response: str
     temperature: float
 
-# 4. API Endpoints
 @app.get("/")
 def read_root():
     return {
