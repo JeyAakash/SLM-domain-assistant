@@ -33,38 +33,36 @@ The application enables domain-specific natural language generation and summariz
 ```text
 slm-project/
 │
-├── configs/               # Hyperparameter and environment settings
-│   └── model_config.yaml
-│
-├── data/                  # Dataset directory
-│   ├── raw/               # Raw domain files
-│   └── processed/         # Cleaned JSONL train/validation splits
+├── data/
+│   └── processed/
 │       └── train.jsonl
 │
-├── src/                   # Source application code
-│   ├── model/             # Model loading, training, and inference logic
-│   │   ├── train.py
-│   │   └── inference.py
-│   ├── evaluation/        # Benchmark and latency evaluation scripts
+├── experiments/
+│   ├── final_adapter/
+│   │   ├── README.md
+│   │   ├── adapter_config.json
+│   │   ├── adapter_model.safetensors
+│   │   ├── chat_template.jinja
+│   │   ├── tokenizer.json
+│   │   └── tokenizer_config.json
+│   │
+│   └── outputs/
+│       ├── checkpoint-1/
+│       ├── checkpoint-2/
+│       ├── checkpoint-3/
+│       └── README.md
+│
+├── src/
+│   ├── api/
+│   │   └── main.py
+│   ├── evaluation/
 │   │   └── evaluate.py
-│   ├── optimization/      # Quantization settings and VRAM management
-│   │   └── quantization.py
-│   └── api/               # FastAPI endpoints and Pydantic schemas
-│       └── main.py
+│   └── model/
+│       └── train.py
 │
-├── tests/                 # Unit and integration test scripts
-│   └── test_api.py
-│
-├── experiments/           # Training output artifacts and PEFT adapters
-│   └── final_adapter/
-│       ├── adapter_config.json
-│       └── adapter_model.safetensors
-│
-├── reports/               # Evaluation results and benchmark summaries
-│   └── benchmark_report.md
-│
-├── requirements.txt       # Project dependencies
-└── README.md              # Project documentation
+├── .gitignore
+├── README.md
+└── requirements.txt
 ```
 
 ---
